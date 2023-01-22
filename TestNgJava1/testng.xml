@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
-  </test> <!-- Test -->
+<suite name="Suite" thread-count="5" parallel="tests">
+	
+	<test  name="chromeBrowserTest">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="package1.PraticePageTestClass" />
+			<class name="package1.PracticeFrameTestClass" />
+		</classes>
+	</test> <!-- Test -->
+	
+	
+	
 </suite> <!-- Suite -->
