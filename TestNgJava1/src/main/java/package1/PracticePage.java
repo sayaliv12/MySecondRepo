@@ -43,7 +43,15 @@ public class PracticePage {
 	private WebElement openWindow;
 	@FindBy(xpath="//a[@id='opentab']")
 	private WebElement openTab;
-
+	@FindBy(xpath="//iframe[@id='courses-iframe']")
+	private WebElement iframe;
+	@FindBy(xpath="//a[@class='dropdown-toggle']")
+	private WebElement more;
+	@FindBy(xpath="//ul[@class='dropdown-menu']//li")
+	private WebElement aboutUs;
+	@FindBy(xpath="//a[text()='REST API']")
+	private WebElement restAPI;
+	
 	public PracticePage(WebDriver driver)
 	{
 		PageFactory.initElements(driver,this);
@@ -51,6 +59,8 @@ public class PracticePage {
 		act=new Actions(driver);
 		//wait=new WebDriverWait(driver,20);
 	}
+	
+	//1.Radio Button Example
 	public void clickOnradioButton()
 	{
 		//Validation
@@ -60,10 +70,12 @@ public class PracticePage {
 		value=radio1.isSelected();
 		System.out.println("Result after selecting  radio box is :" +value);
 	}
+	//2.Suggestiong Class Example
 	public void enterCountryName(String country)
 	{
 		countryName.sendKeys(country);
 	}
+	//3.Dropdown Example
 	public void selectOneOptionFromDropDown()
 	{
 		Select s=new Select(dropDown);
@@ -71,6 +83,7 @@ public class PracticePage {
 		s.selectByValue("option1");
 		s.selectByVisibleText("Option1");
 	}
+	//4.ChckBox Example
 	public void selectOptionFormCheckbox()
 	{
 		//Validation
@@ -80,6 +93,7 @@ public class PracticePage {
 		value=option1.isSelected();
 		System.out.println("Result after selecting checkbox is :" +value);
 	}
+	//5.Element isDisplayed Example
 	public void clickOnHideAndShowButton() 
 	{
 		//Validation
@@ -96,24 +110,39 @@ public class PracticePage {
 		value=inputField.isDisplayed();
 		System.out.println("Is input field displayed? :"+value);
 	}
+	//6.Mouse Hover Example
 	public void mouseHoverAction()
 	{
 		act.moveToElement(mouseHoverbutton).moveToElement(top).click().build().perform();
 		act.moveToElement(mouseHoverbutton).moveToElement(reload).click().build().perform();
 	}
+	//7.Switch To Alert Example
 	public void clickOnAlertButton()
 	{
 		alert.click();
 		Alert alt=driver.switchTo().alert();
 		alt.accept();
 	}
+	//8.Switch Window Example
 	public void clickOnOpenWindowButton()
 	{
 		openWindow.click();
 	}
+	//9.Switch Tab Example
 	public void clickOnOpenTabButton()
 	{
 		openTab.click();
+	}
+	//10.iframe Example
+	public void clickOnmoretab() throws InterruptedException
+	{
+		Thread.sleep(3000);
+		driver.switchTo().frame(iframe);
+		act.moveToElement(more).moveToElement(aboutUs).click().build().perform();
+	}
+	public void clickOnFooterlink()
+	{
+		restAPI.click();
 	}
 }
 

@@ -17,7 +17,7 @@ public class Utility {
 	private WebDriver driver;
 	public static String fetchDataFromExcelSheet(String sheet,int rowNo,int CellNo) throws IOException 
 	{
-		String path="D:\\Eclipse Workspace\\TestNgJava1\\src\\test\\resources\\Testdata\\TestData1.xlsx";
+		String path="C:\\Users\\DELL\\Desktop\\Project2\\TestNgJava1\\src\\test\\resources\\Testdata\\TestData1.xlsx";
 		FileInputStream file=new FileInputStream(path);
 		Cell cell=WorkbookFactory.create(file).getSheet("sheet1").getRow(rowNo).getCell(CellNo);
 		try
@@ -33,7 +33,6 @@ public class Utility {
 			return str;
 		}
 	}
-
 	public static void captureScreenshot(WebDriver driver,int testId) throws IOException
 	{
 		Date date=new Date();
@@ -43,8 +42,7 @@ public class Utility {
 		System.out.println(fileName);
 		TakesScreenshot take=(TakesScreenshot)driver;
 		File src=take.getScreenshotAs(OutputType.FILE);
-		File dest=new File("D:\\Eclipse Workspace\\TestNgJava1\\test-output\\Failed Test Screenshots\\test" +fileName+ ".jpeg");
+		File dest=new File("C:\\Users\\DELL\\Desktop\\Project2\\TestNgJava1\\test-output\\Failed Test Screenshots\\test" +fileName+ ".jpeg");
 		FileHandler.copy(src,dest);
-
 	}
 }

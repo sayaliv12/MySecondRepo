@@ -3,14 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="package1.PraticePageTestClass">
+      <class name="package1.PracticeFrameTestClass">
         <methods>
-          <include name="logoutFromApplication"/>
-          <include name="verifyRow3Exmaple"/>
-          <include name="openPracticePage"/>
           <include name="launchBrowser"/>
+          <include name="openPracticePage"/>
+          <include name="logoutFromApplication"/>
+          <include name="closedBrowser"/>
+          <include name="verifyIframeexample"/>
         </methods>
-      </class> <!-- package1.PraticePageTestClass -->
+      </class> <!-- package1.PracticeFrameTestClass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
